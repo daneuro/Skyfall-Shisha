@@ -151,16 +151,22 @@ header h1 {
                 transform: translateX(-100%);
             }
         }
-  nav {
+ nav {
+    position: fixed; /* Fixăm bara de navigare sus de tot */
+    top: 0;
+    left: 0;
+    width: 100%; /* Bara va ocupa întreaga lățime a paginii */
     background-color: #ffffff;
     padding: 10px 20px;
     display: flex;
     justify-content: center;
     align-items: center;
-    border-bottom: 1px solid #ccc;
-    flex-wrap: wrap; /* Permite elementelor să treacă pe mai multe linii pe dispozitive mici */
+    border-bottom: 1px solid #ccc; /* Linia de delimitare subtire sub bara de navigare */
+    z-index: 1000; /* Asigură că bara de navigare rămâne deasupra altor elemente */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Umbră subtilă pentru a scoate în evidență bara de navigare */
 }
 
+/* Linkuri din bara de navigare */
 nav a {
     color: #2c3e50; /* Culoare text */
     text-decoration: none;
