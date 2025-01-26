@@ -151,81 +151,52 @@ header h1 {
                 transform: translateX(-100%);
             }
         }
-        nav {
+  nav {
     background-color: #ffffff;
-    border-bottom: 1px solid #ccc;
     padding: 10px 20px;
-    position: fixed; /* Fixat în partea de sus */
-    top: 0;
-    left: 0;
-    width: 100%; /* Ocupă întreaga lățime */
-    overflow-x: auto; /* Derulare orizontală */
-    white-space: nowrap; /* Previne împachetarea link-urilor */
-    z-index: 1000; /* Deasupra altor elemente */
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Umbră ușoară */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-bottom: 1px solid #ccc;
+    flex-wrap: wrap; /* Permite ca elementele să se întindă pe mai multe linii dacă sunt prea multe pe un rând */
 }
 
 nav a {
     color: #2c3e50; /* Culoare text */
     text-decoration: none;
     padding: 10px 20px; /* Adăugăm un padding pentru a face linkurile mai mari */
-    margin: 0 10px; /* Adăugăm spațiu între linkuri */
+    margin: 5px; /* Adăugăm spațiu între linkuri */
     background-color: #f4f6f9; /* Fundal gri pentru linkuri */
     border: 2px solid #2c3e50; /* Bordură pentru a crea efectul de casetă */
     border-radius: 5px; /* Colțuri rotunjite */
     transition: background-color 0.3s, transform 0.3s; /* Tranziție lină la hover */
 }
 
+/* Efect hover pentru linkuri */
 nav a:hover {
-    color: #f39c12;
-    transform: scale(1.05); /* Zoom subtil la hover */
+    background-color: #2c3e50; /* Fundal albastru închis la hover */
+    color: #ffffff; /* Culoare albă pentru text la hover */
+    transform: scale(1.05); /* Mărire subtilă a linkului */
 }
 
+/* Efect pentru linkul activ */
 nav a.active {
-    color: #d64b57;
+    background-color: #f39c12; /* Fundal galben pentru linkul activ */
+    color: white; /* Culoare albă pentru textul linkului activ */
 }
 
-/* Scrollbar stilizat pentru bara de navigație */
-nav::-webkit-scrollbar {
-    height: 8px; /* Înălțimea scrollbar-ului */
-}
-
-nav::-webkit-scrollbar-track {
-    background: #f4f6f9;
-    border-radius: 10px;
-}
-
-nav::-webkit-scrollbar-thumb {
-    background: #888;
-    border-radius: 10px;
-    border: 2px solid #f4f6f9;
-}
-
-nav::-webkit-scrollbar-thumb:hover {
-    background: #555;
-}
-
-/* Pentru conținutul paginii */
-
-/* Responsivitate pentru ecrane mai mici */
+/* Media query pentru dispozitivele mobile - păstrăm meniul orizontal */
 @media (max-width: 768px) {
     nav {
-        padding: 35px; /* Reduce spațiul de padding pe dispozitive mobile */
-        font-size: 38px; /* Micșorează fontul link-urilor */
+        justify-content: space-between; /* Asigură o distribuire uniformă a linkurilor pe toată lățimea */
+        padding: 25px 30px; /* Ajustăm padding-ul pe mobil pentru a economisi spațiu */
     }
+
     nav a {
-        margin-right: 15px; /* Reduce spațiul dintre link-uri */
+        padding: 25px 30px; /* Mărim linkurile pentru a fi ușor de apăsat pe mobil */
+        font-size: 14px; /* Micșorăm fontul pentru a se potrivi mai bine pe ecrane mici */
     }
 }
-
-@media (max-width: 480px) {
-    nav {
-        padding: 30px; /* Reduce padding-ul și mai mult pe ecrane foarte mici */
-        font-size: 34px; /* Fonturi mai mici pentru telefoane */
-    }
-    nav a {
-        margin-right: 10px; /* Spațiu mai mic între link-uri */
-    }
 }
         .container {
             max-width: 1200px;
