@@ -153,20 +153,21 @@ header h1 {
         }
        
 
-        nav {
+      nav {
     position: fixed; /* Fixează bara de navigare sus */
     top: 0;
     left: 0;
     width: 100%; /* Bara ocupă întreaga lățime */
     background-color: #ffffff;
     padding: 10px 20px;
-    display: flex;
-    justify-content: flex-start; /* Linkurile vor fi aliniate la stânga */
+    display: flex; /* Flexbox pentru aliniere orizontală */
+    flex-wrap: nowrap; /* Nu permite rânduri multiple pe mobil */
+    justify-content: flex-start; /* Aliniază elementele la stânga */
     align-items: center;
     border-bottom: 1px solid #ccc; /* Linia subtire sub bara de navigare */
     z-index: 1000;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    overflow-x: auto; /* Permite scroll-ul pe orizontală pentru linkuri */
+    overflow-x: auto; /* Permite scroll-ul pe orizontală */
 }
 
 /* Linkuri din bara de navigare */
@@ -211,14 +212,15 @@ nav a.active {
 /* Media query pentru dispozitive mobile */
 @media (max-width: 768px) {
     nav {
-        justify-content: flex-start; /* Aliniază linkurile la stânga */
         padding: 10px 15px;
+        justify-content: flex-start; /* Aliniază linkurile la stânga */
         overflow-x: auto; /* Permite scroll pe orizontală */
     }
 
     nav a {
         padding: 10px 15px;
         font-size: 14px; /* Micșorăm fontul pe mobil */
+        white-space: nowrap; /* Previne întreruperea cuvintelor */
     }
 }
 
