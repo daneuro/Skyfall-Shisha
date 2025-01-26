@@ -166,13 +166,14 @@ header h1 {
 }
 
 nav a {
-    color: #2c3e50;
+    color: #2c3e50; /* Culoare text */
     text-decoration: none;
-    display: inline-block; /* Link-urile sunt afișate pe o singură linie */
-    margin-right: 15px; /* Spațiu între link-uri */
-    font-weight: bold;
-    transition: color 0.3s ease, transform 0.3s ease; /* Tranziție lină pentru efect */
-    
+    padding: 10px 20px; /* Adăugăm un padding pentru a face linkurile mai mari */
+    margin: 0 10px; /* Adăugăm spațiu între linkuri */
+    background-color: #f4f6f9; /* Fundal gri pentru linkuri */
+    border: 2px solid #2c3e50; /* Bordură pentru a crea efectul de casetă */
+    border-radius: 5px; /* Colțuri rotunjite */
+    transition: background-color 0.3s, transform 0.3s; /* Tranziție lină la hover */
 }
 
 nav a:hover {
