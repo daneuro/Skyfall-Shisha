@@ -155,38 +155,82 @@ header h1 {
     background-color: #ffffff;
     border-bottom: 1px solid #ccc;
     padding: 10px 20px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    position: fixed; /* Fixează bara de navigație pe ecran */
-    top: 0; /* Plasează bara în partea de sus */
+    position: fixed; /* Fixat în partea de sus */
+    top: 0;
     left: 0;
-    width: 100%; /* Asigură că bara ocupă întreaga lățime */
-    z-index: 1000; /* Pune bara de navigație deasupra altor elemente */
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Adaugă o umbră ușoară */
+    width: 100%; /* Ocupă întreaga lățime */
+    overflow-x: auto; /* Derulare orizontală */
+    white-space: nowrap; /* Previne împachetarea link-urilor */
+    z-index: 1000; /* Deasupra altor elemente */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Umbră ușoară */
 }
 
 nav a {
-    color: #2c3e50; /* Albastru închis pentru link-uri */
+    color: #2c3e50;
     text-decoration: none;
-    margin: 0 15px;
+    display: inline-block; /* Link-urile sunt afișate pe o singură linie */
+    margin-right: 15px; /* Spațiu între link-uri */
     font-weight: bold;
-    transition: color 0.3s ease, transform 0.3s ease; /* Tranziție lină pentru culoare și transformare */
+    transition: color 0.3s ease, transform 0.3s ease; /* Tranziție lină pentru efect */
+    
 }
 
-/* Efect de hover pe link-urile din nav */
 nav a:hover {
-    color: #f39c12; /* Aurie pentru hover */
-    transform: scale(1.05); /* Zoom subtil pe hover */
+    color: #f39c12;
+    transform: scale(1.05); /* Zoom subtil la hover */
 }
-/* Clasa activă pentru a evidenția link-ul selectat */
+
 nav a.active {
-    color: #d64b57; /* Roșu pentru link-ul activ */
+    color: #d64b57;
+}
+
+/* Scrollbar stilizat pentru bara de navigație */
+nav::-webkit-scrollbar {
+    height: 8px; /* Înălțimea scrollbar-ului */
+}
+
+nav::-webkit-scrollbar-track {
+    background: #f4f6f9;
+    border-radius: 10px;
+}
+
+nav::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 10px;
+    border: 2px solid #f4f6f9;
+}
+
+nav::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
+
+/* Pentru conținutul paginii */
+
+/* Responsivitate pentru ecrane mai mici */
+@media (max-width: 768px) {
+    nav {
+        padding: 10px; /* Reduce spațiul de padding pe dispozitive mobile */
+        font-size: 14px; /* Micșorează fontul link-urilor */
+    }
+    nav a {
+        margin-right: 10px; /* Reduce spațiul dintre link-uri */
+    }
+}
+
+@media (max-width: 480px) {
+    nav {
+        padding: 5px; /* Reduce padding-ul și mai mult pe ecrane foarte mici */
+        font-size: 12px; /* Fonturi mai mici pentru telefoane */
+    }
+    nav a {
+        margin-right: 5px; /* Spațiu mai mic între link-uri */
+    }
 }
         .container {
             max-width: 1200px;
             margin: 20px auto;
             padding: 0 15px;
+            
         }
 
         .section {
