@@ -151,33 +151,36 @@ header h1 {
                 transform: translateX(-100%);
             }
         }
- nav {
-    position: fixed; /* Fixăm bara de navigare sus de tot */
+       
+
+        nav {
+    position: fixed; /* Fixează bara de navigare sus */
     top: 0;
     left: 0;
-    width: 100%; /* Bara va ocupa întreaga lățime a paginii */
+    width: 100%; /* Bara ocupă întreaga lățime */
     background-color: #ffffff;
     padding: 10px 20px;
     display: flex;
-    justify-content: center;
+    justify-content: flex-start; /* Linkurile vor fi aliniate la stânga */
     align-items: center;
-    border-bottom: 1px solid #ccc; /* Linia de delimitare subtire sub bara de navigare */
-    z-index: 1000; /* Asigură că bara de navigare rămâne deasupra altor elemente */
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Umbră subtilă pentru a scoate în evidență bara de navigare */
+    border-bottom: 1px solid #ccc; /* Linia subtire sub bara de navigare */
+    z-index: 1000;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    overflow-x: auto; /* Permite scroll-ul pe orizontală pentru linkuri */
 }
 
 /* Linkuri din bara de navigare */
 nav a {
     color: #2c3e50; /* Culoare text */
     text-decoration: none;
-    padding: 10px 20px; /* Adăugăm un padding pentru a face linkurile mai mari */
-    margin: 5px; /* Adăugăm spațiu între linkuri */
-    position: relative; /* Necesare pentru efectul de delimitare */
-    font-weight: bold; /* Fontul devine mai îngroșat pentru a arăta mai profesionist */
+    padding: 10px 20px; /* Padding pentru a face linkurile mai mari */
+    margin: 0 15px; /* Spațiu între linkuri */
+    position: relative; /* Pentru a adăuga un efect de delimitare */
+    font-weight: bold; /* Font îngroșat pentru un aspect profesionist */
     transition: color 0.3s, background-color 0.3s, transform 0.3s; /* Tranziție lină */
 }
 
-/* Linia subtire sub fiecare link pentru a arăta delimitarea */
+/* Adăugăm o linie de delimitare subtilă sub fiecare link */
 nav a::after {
     content: '';
     position: absolute;
@@ -185,44 +188,58 @@ nav a::after {
     left: 0;
     width: 100%;
     height: 2px;
-    background-color: #2c3e50; /* Linia subtire de delimitare */
-    transform: scaleX(0);
-    transform-origin: bottom right;
-    transition: transform 0.3s ease-out;
+    background-color: transparent;
+    transition: background-color 0.3s ease-out;
 }
 
-/* Efect hover pentru linkuri */
+/* Efect de hover pentru linkuri - linia apare la hover */
 nav a:hover {
-    color: #ffffff; /* Culoare albă la hover */
-    background-color: #2c3e50; /* Fundal albastru închis la hover */
-    transform: scale(1.05); /* Mărire subtilă la hover */
+    color: #f39c12; /* Culoare galbenă pe hover */
+    background-color: #f4f6f9; /* Fundal gri deschis la hover */
+    transform: scale(1.05); /* Zoom subtil pe hover */
 }
 
-/* Efect de delimitare pe hover - linia se extinde */
 nav a:hover::after {
-    transform: scaleX(1);
-    transform-origin: bottom left;
+    background-color: #2c3e50; /* Linia de delimitare apare pe hover */
 }
 
-/* Efect pentru linkul activ */
+/* Linkul activ */
 nav a.active {
-    background-color: #f39c12; /* Fundal galben pentru linkul activ */
-    color: white; /* Culoare albă pentru textul linkului activ */
+    color: #d64b57; /* Culoare roșu pentru linkul activ */
 }
 
-/* Media query pentru dispozitivele mobile - păstrăm meniul orizontal */
+/* Media query pentru dispozitive mobile */
 @media (max-width: 768px) {
     nav {
-        justify-content: space-between; /* Asigură o distribuire uniformă a linkurilor pe toată lățimea */
-        padding: 10px 15px; /* Ajustăm padding-ul pe mobil pentru a economisi spațiu */
+        justify-content: flex-start; /* Aliniază linkurile la stânga */
+        padding: 10px 15px;
+        overflow-x: auto; /* Permite scroll pe orizontală */
     }
 
     nav a {
-        padding: 10px 15px; /* Mărim linkurile pentru a fi ușor de apăsat pe mobil */
-        font-size: 14px; /* Micșorăm fontul pentru a se potrivi mai bine pe ecrane mici */
+        padding: 10px 15px;
+        font-size: 14px; /* Micșorăm fontul pe mobil */
     }
 }
+
+/* Scrollbar stilizat */
+nav::-webkit-scrollbar {
+    height: 8px; /* Înălțimea scrollbar-ului pe mobil */
 }
+
+nav::-webkit-scrollbar-track {
+    background: #f4f6f9;
+    border-radius: 10px;
+}
+
+nav::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 10px;
+    border: 2px solid #f4f6f9;
+}
+
+nav::-webkit-scrollbar-thumb:hover {
+    background: #555;
 }
         .container {
             max-width: 1200px;
