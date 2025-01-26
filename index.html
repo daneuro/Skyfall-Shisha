@@ -1,0 +1,833 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Skyfall Shisha</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f6f9; /* Gri deschis pentru fundal */
+             color: #333;
+        }
+
+        header {
+    background-color: #2c3e50; /* Albastru închis pentru un look elegant */
+    color: white;
+    padding: 50px 0;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+    z-index: 1;
+}
+
+header h1 {
+    font-size: 50px;
+    font-family: 'Helvetica Neue', sans-serif;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    margin-bottom: 10px;
+    text-shadow: 3px 3px 5px rgba(0, 0, 0, 0.3); /* Adăugat text-shadow pentru un efect mai elegant */
+    animation: fadeIn 2s ease-in-out;
+}
+
+        header p {
+            font-size: 18px;
+            letter-spacing: 2px;
+            font-weight: 300;
+            margin-top: 10px;
+            opacity: 0;
+            animation: fadeInText 3s ease-in-out forwards;
+        }
+        .image-container {
+            display: flex;
+            width: 800%; /* 8 imagini */
+            animation: slide 120s infinite linear;
+            gap: 20px; /* Adaugă spațiu între imagini */
+        }
+
+        .image-container img {
+            width: 2%; /* Fiecare imagine va ocupa 1/10 din lățimea containerului (mai mici) */
+            height: auto;
+            object-fit: cover;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        .image-container img:nth-child(9),
+        .image-container img:nth-child(10),
+        .image-container img:nth-child(11),
+        .image-container img:nth-child(12),
+        .image-container img:nth-child(13),
+        .image-container img:nth-child(14),
+        .image-container img:nth-child(15),
+        .image-container img:nth-child(16) {
+            order: 1;
+        }
+
+        .image-container img:nth-child(9),
+        .image-container img:nth-child(10),
+        .image-container img:nth-child(11),
+        .image-container img:nth-child(12),
+        .image-container img:nth-child(13),
+        .image-container img:nth-child(14),
+        .image-container img:nth-child(15),
+        .image-container img:nth-child(16) {
+            order: 2;
+        }
+        .image-container img:nth-child(9),
+        .image-container img:nth-child(10),
+        .image-container img:nth-child(11),
+        .image-container img:nth-child(12),
+        .image-container img:nth-child(13),
+        .image-container img:nth-child(14),
+        .image-container img:nth-child(15),
+        .image-container img:nth-child(16) {
+            order: 3;
+        }
+
+        .image-container img:nth-child(9),
+        .image-container img:nth-child(10),
+        .image-container img:nth-child(11),
+        .image-container img:nth-child(12),
+        .image-container img:nth-child(13),
+        .image-container img:nth-child(14),
+        .image-container img:nth-child(15),
+        .image-container img:nth-child(16) {
+            order: 4;
+        }
+        .image-container img:nth-child(9),
+        .image-container img:nth-child(10),
+        .image-container img:nth-child(11),
+        .image-container img:nth-child(12),
+        .image-container img:nth-child(13),
+        .image-container img:nth-child(14),
+        .image-container img:nth-child(15),
+        .image-container img:nth-child(16) {
+            order: 5;
+        }
+
+        .image-container img:nth-child(9),
+        .image-container img:nth-child(10),
+        .image-container img:nth-child(11),
+        .image-container img:nth-child(12),
+        .image-container img:nth-child(13),
+        .image-container img:nth-child(14),
+        .image-container img:nth-child(15),
+        .image-container img:nth-child(16) {
+            order: 6;
+        }
+
+
+        @keyframes slide {
+            0% {
+                transform: translateX(0);
+            }
+            12.5% {
+                transform: translateX(-12.5%);
+            }
+            25% {
+                transform: translateX(-25%);
+            }
+            37.5% {
+                transform: translateX(-37.5%);
+            }
+            50% {
+                transform: translateX(-50%);
+            }
+            62.5% {
+                transform: translateX(-62.5%);
+            }
+            75% {
+                transform: translateX(-75%);
+            }
+            87.5% {
+                transform: translateX(-87.5%);
+            }
+            100% {
+                transform: translateX(-100%);
+            }
+        }
+        nav {
+    background-color: #ffffff;
+    border-bottom: 1px solid #ccc;
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed; /* Fixează bara de navigație pe ecran */
+    top: 0; /* Plasează bara în partea de sus */
+    left: 0;
+    width: 100%; /* Asigură că bara ocupă întreaga lățime */
+    z-index: 1000; /* Pune bara de navigație deasupra altor elemente */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Adaugă o umbră ușoară */
+}
+
+nav a {
+    color: #2c3e50; /* Albastru închis pentru link-uri */
+    text-decoration: none;
+    margin: 0 15px;
+    font-weight: bold;
+    transition: color 0.3s ease, transform 0.3s ease; /* Tranziție lină pentru culoare și transformare */
+}
+
+/* Efect de hover pe link-urile din nav */
+nav a:hover {
+    color: #f39c12; /* Aurie pentru hover */
+    transform: scale(1.05); /* Zoom subtil pe hover */
+}
+/* Clasa activă pentru a evidenția link-ul selectat */
+nav a.active {
+    color: #d64b57; /* Roșu pentru link-ul activ */
+}
+        .container {
+            max-width: 1200px;
+            margin: 20px auto;
+            padding: 0 15px;
+        }
+
+        .section {
+            margin-bottom: 40px;
+            padding: 20px;
+            border-radius: 8px;
+            background-color: rgba(255, 255, 255, 0.9);
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            position: relative;
+        }
+
+        .section::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('sky.jpg');
+            background-size: cover;
+            background-position: center;
+            opacity: 0.6;
+            z-index: -1;
+            border-radius: 8px;
+        }
+
+        .section h2 {
+            color: #5ba4d8;
+            margin-bottom: 10px;
+        }
+
+        .menu-item {
+            margin-bottom: 10px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #eee;
+        }
+
+        .menu-item:last-child {
+            border-bottom: none;
+        }
+
+        .menu-item span {
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        .footer {
+            text-align: center;
+            padding: 20px;
+            background-color: #2c3e50;
+            color: white;
+            margin-top: 40px;
+        }
+
+        .button {
+    display: inline-block;
+    background-color: #2c3e50; /* Albastru închis pentru buton */
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+/* Hover pe buton */
+.button:hover {
+    background-color: #f39c12; /* Aurie pentru hover */
+}
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Skyfall Shisha</h1>
+    <p>Relaxare, Gust, Eleganță</p>
+    <div class="image-container">
+        <img src="image1.jpg" alt="Image 1">
+        <img src="image2.jpg" alt="Image 2">
+        <img src="image3.jpg" alt="Image 3">
+        <img src="image4.jpg" alt="Image 4">
+        <img src="imgae5.jpg" alt="Image 5">
+        <img src="image6.jpg" alt="Image 6">
+        <img src="imagt7.jpg" alt="Image 7">
+        <img src="image8.jpg" alt="Image 8">
+
+        <img src="image1.jpg" alt="Image 1">
+        <img src="image2.jpg" alt="Image 2">
+        <img src="image3.jpg" alt="Image 3">
+        <img src="image4.jpg" alt="Image 4">
+        <img src="imgae5.jpg" alt="Image 5">
+        <img src="image6.jpg" alt="Image 6">
+        <img src="imagt7.jpg" alt="Image 7">
+        <img src="image8.jpg" alt="Image 8">
+
+        <img src="image1.jpg" alt="Image 1">
+        <img src="image2.jpg" alt="Image 2">
+        <img src="image3.jpg" alt="Image 3">
+        <img src="image4.jpg" alt="Image 4">
+        <img src="imgae5.jpg" alt="Image 5">
+        <img src="image6.jpg" alt="Image 6">
+        <img src="imagt7.jpg" alt="Image 7">
+        <img src="image8.jpg" alt="Image 8">
+
+        <img src="image1.jpg" alt="Image 1">
+        <img src="image2.jpg" alt="Image 2">
+        <img src="image3.jpg" alt="Image 3">
+        <img src="image4.jpg" alt="Image 4">
+        <img src="imgae5.jpg" alt="Image 5">
+        <img src="image6.jpg" alt="Image 6">
+        <img src="imagt7.jpg" alt="Image 7">
+        <img src="image8.jpg" alt="Image 8">
+
+        <img src="image1.jpg" alt="Image 1">
+        <img src="image2.jpg" alt="Image 2">
+        <img src="image3.jpg" alt="Image 3">
+        <img src="image4.jpg" alt="Image 4">
+        <img src="imgae5.jpg" alt="Image 5">
+        <img src="image6.jpg" alt="Image 6">
+        <img src="imagt7.jpg" alt="Image 7">
+        <img src="image8.jpg" alt="Image 8">
+
+        <img src="image1.jpg" alt="Image 1">
+        <img src="image2.jpg" alt="Image 2">
+        <img src="image3.jpg" alt="Image 3">
+        <img src="image4.jpg" alt="Image 4">
+        <img src="imgae5.jpg" alt="Image 5">
+        <img src="image6.jpg" alt="Image 6">
+        <img src="imagt7.jpg" alt="Image 7">
+        <img src="image8.jpg" alt="Image 8">
+
+        <img src="image1.jpg" alt="Image 1">
+        <img src="image2.jpg" alt="Image 2">
+        <img src="image3.jpg" alt="Image 3">
+        <img src="image4.jpg" alt="Image 4">
+        <img src="imgae5.jpg" alt="Image 5">
+        <img src="image6.jpg" alt="Image 6">
+        <img src="imagt7.jpg" alt="Image 7">
+        <img src="image8.jpg" alt="Image 8">
+    </div>
+    </div>
+</header>
+
+
+<nav>
+    
+    <a href="#bauturi-calde">Băuturi Calde</a>
+    <a href="#racoritoare">Răcoritoare</a>
+    <a href="#bere">Bere</a>
+    <a href="#cocktail">Cocktail</a>
+    <a href="#long-drinks">Long Drinks</a>
+    <a href="#milkshake">Milkshake</a>
+    <a href="#mancare">Mâncare</a>
+    <a href="#extras">Extra</a>
+    <a href="#narghilea">Narghilea</a>
+    <a href="#bucketuri">Bucket-uri</a>
+    <a href="#vinuri">Vinuri</a>
+    <a href="#snacksuri">Snacksuri</a>
+    <a href="#contact">Contact</a>
+</nav>
+
+<div class="container">
+    <!-- Băuturi Calde -->
+    <section id="bauturi-calde" class="section">
+        <h2>Bauturi calde</h2>
+        <div class="menu-item">
+            <span><strong>Espresso (30ml)</strong></span>
+            <span>Preț: 9 RON</span>
+            <span>Descriere: Cafea scurtă</span>
+        </div>
+        <div class="menu-item">
+            <span><strong>Americano (100ml)</strong></span>
+            <span>Preț: 9 RON</span>
+            <span>Descriere: Cafea lungă</span>
+        </div>
+        <div class="menu-item">
+            <span><strong>Cappuccino (250ml)</strong></span>
+            <span>Preț: 12 RON</span>
+            <span>Descriere: Cafea scurtă, spumă de lapte</span>
+            <span>Alergeni: Lapte</span>
+        </div>
+        <div class="menu-item">
+            <span><strong>Latte Macchiato (350ml)</strong></span>
+            <span>Preț: 14 RON</span>
+            <span>Opțiuni: clasică, caramel, vanilie</span>
+            <span>Alergeni: Lapte</span>
+        </div>
+        <div class="menu-item">
+            <span><strong>Frappé (350ml)</strong></span>
+            <span>Preț: 15 RON</span>
+            <span>Opțiuni: clasic, caramel, vanilie, oreo</span>
+            <span>Alergeni: Lapte, Soia, Gluten</span>
+        </div>
+        <div class="menu-item">
+            <span><strong>Ciocolata calda (250ml)</strong></span>
+            <span>Preț: 14 RON</span>
+            <span>Opțiuni:albă/neagra
+            </span>
+            <span>Alergeni: Lapte, soia</span>
+        </div>
+        <div class="menu-item">
+            <span><strong>Ceai (300ml)</strong></span>
+            <span>Preț: 10 RON</span>
+            <span>Opțiuni: menta, fructe de padure, musetel</span>
+        </div>
+    </section>
+
+    <!-- Răcoritoare -->
+    <section id="racoritoare" class="section">
+        <h2>Răcoritoare</h2>
+        <div class="menu-item">
+            <span><strong>Coca-Cola (250ml)</strong></span>
+            <span>Preț: 10 RON</span>
+        </div>
+        <div class="menu-item">
+            <span><strong>Coca-Cola Zero (250ml)</strong></span>
+            <span>Preț: 10 RON</span>
+        </div>
+        <div class="menu-item">
+            <span><strong>Fanta (250ml)</strong></span>
+            <span>Preț: 10 RON</span>
+        </div>
+        <div class="menu-item">
+            <span><strong>Sprite (250ml)</strong></span>
+            <span>Preț: 10 RON</span>
+        </div>
+        <div class="menu-item">
+            <span><strong>Cappy (250ml)</strong></span>
+            <span>Preț: 10 RON</span>
+        </div>
+        <div class="menu-item">
+            <span><strong>Fuze Tea (250ml)</strong></span>
+            <span>Preț: 10 RON</span>
+        </div>
+        <div class="menu-item">
+            <span><strong>Schweppes (250ml)</strong></span>
+            <span>Preț: 10 RON</span>
+        </div>
+        <div class="menu-item">
+            <span><strong>Redbull (250ml)</strong></span>
+            <span>Preț: 15 RON</span>
+        </div>
+        <div class="menu-item">
+            <span><strong>Apă plată (750ml)</strong></span>
+            <span>Preț: 15 RON</span>
+        </div>
+        <div class="menu-item">
+            <span><strong>Apă carbogazoasă (750ml)</strong></span>
+            <span>Preț: 15 RON</span>
+        </div>
+        <div class="menu-item">
+            <span><strong>Fresh portocale (300ml)</strong></span>
+            <span>Preț: 15 RON</span>
+        </div>
+    </section>
+
+    <section id="bere" class="section">
+        <h2>Bere</h2>
+        <div class="menu-item">
+            <span><strong>Ursus (500ml)</strong></span>
+            <span>Preț: 12 RON</span>
+            <p>Alergeni: cereale care conțin gluten</p>
+        </div>
+        <div class="menu-item">
+            <span><strong>Ursus (300ml)</strong></span>
+            <span>Preț: 10 RON</span>
+            <p>Alergeni: cereale care conțin gluten</p>
+        </div>
+        <div class="menu-item">
+            <span><strong>Ursus Draft (400ml)</strong></span>
+            <span>Preț: 12 RON</span>
+            <p>Alergeni: cereale care conțin gluten</p>
+        </div>
+        <div class="menu-item">
+            <span><strong>Peroni (500ml)</strong></span>
+            <span>Preț: 15 RON</span>
+            <p>Alergeni: cereale care conțin gluten</p>
+        </div>
+        <div class="menu-item">
+            <span><strong>Peroni Draft (400ml)</strong></span>
+            <span>Preț: 15 RON</span>
+            <p>Alergeni: cereale care conțin gluten</p>
+        </div>
+        <div class="menu-item">
+            <span><strong>Corona (355ml)</strong></span>
+            <span>Preț: 15 RON</span>
+            <p>Alergeni: cereale care conțin gluten</p>
+        </div>
+        <div class="menu-item">
+            <span><strong>Stella Artois (330ml)</strong></span>
+            <span>Preț: 14 RON</span>
+            <p>Alergeni: cereale care conțin gluten</p>
+        </div>
+        <div class="menu-item">
+            <span><strong>Strongbow (330ml)</strong></span>
+            <span>Preț: 15 RON</span>
+            <p>Alergeni: dioxid de sulf</p>
+        </div>
+        <div class="menu-item">
+            <span><strong>Ursus 0% (500ml)</strong></span>
+            <span>Preț: 12 RON</span>
+            <p>Alergeni: cereale care conțin gluten</p>
+        </div>
+        <div class="menu-item">
+            <span><strong>Ursus Cooler (330ml)</strong></span>
+            <span>Preț: 10 RON</span>
+            <p>Alergeni: cereale care conțin gluten</p>
+        </div>
+    </section>
+
+    <section id="cocktail" class="section">
+        <h2>Cocktail-uri 350ml</h2>
+        <div class="menu-item">
+            <span><strong>Hugo</strong></span>
+            <span>Preț: 25 RON</span>
+            <span>Conținut: Proseco, sirop soc, Sprite, lime, mentă</span>
+            <span>Alergeni: dioxid de sulf</span>
+        </div>
+        <div class="menu-item">
+            <span><strong>Aperol Spritz</strong></span>
+            <span>Preț: 25 RON</span>
+            <span>Conținut: Aperol, proseco, Sprite, portocale</span>
+            <span>Alergeni: dioxid de sulf</span>
+        </div>
+        <div class="menu-item">
+            <span><strong>Mojito</strong></span>
+            <span>Preț: 25 RON</span>
+            <span>Conținut: Rom alb, sirop soc, Sprite, lime, mentă</span>
+        </div>
+        <div class="menu-item">
+            <span><strong>Pina Colada</strong></span>
+            <span>Preț: 25 RON</span>
+            <span>Conținut: Rom alb, suc ananas, sirop cocos</span>
+        </div>
+        <div class="menu-item">
+            <span><strong>Tequila Sunrise</strong></span>
+            <span>Preț: 28 RON</span>
+            <span>Conținut: Suc portocale, tequila, grenadine</span>
+        </div>
+        <div class="menu-item">
+            <span><strong>Bob Marley</strong></span>
+            <span>Preț: 28 RON</span>
+            <span>Conținut: Grenadine, suc ananas, rom alb, blue curacao</span>
+        </div>
+        <div class="menu-item">
+            <span><strong>Ocean Spritz</strong></span>
+            <span>Preț: 28 RON</span>
+            <span>Conținut: Proseco, blue curacao, gin, apă minerală</span>
+        </div>
+        <div class="menu-item">
+            <span><strong>Hugo 0%</strong></span>
+            <span>Preț: 17 RON</span>
+            <span>Conținut: Sprite,sirop soc,mentă,lime</span>
+        </div>
+        <div class="menu-item">
+            <span><strong>Green Apple  (Fara alcool)</strong></span>
+            <span>Preț: 17 RON</span>
+            <span>Conținut: Suc mere verzi,bule curacao,fresh lămâie</span>
+        </div>
+    </section>
+
+
+    <section id="long-drinks" class="section">
+        <h2>Long Drinks</h2>
+        <div class="menu-item">
+            <span><strong>Cuba Libre</strong></span>
+            <span>Preț: 25 RON</span>
+            <span>Conținut: Rom, Coca-Cola, lime</span>
+        </div>
+        <div class="menu-item">
+            <span><strong>Gin Tonic</strong></span>
+            <span>Preț: 25 RON</span>
+            <span>Conținut: Gin, apă tonică, lime</span>
+        </div>
+        <div class="menu-item">
+            <span><strong>Vodka Mix</strong></span>
+            <span>Preț: 25 RON</span>
+            <span>Conținut: Vodka, suc portocale/merișoare/mere verzi/mere roșii</span>
+        </div>
+        <div class="menu-item">
+            <span><strong>Whiskey Mix</strong></span>
+            <span>Preț: 25 RON</span>
+            <span>Conținut: Whiskey, Coca-Cola/suc mere</span>
+        </div>
+    </section>
+    
+
+    <!-- Milkshake -->
+    <section id="milkshake" class="section">
+        <h2>Milkshake</h2>
+        <div class="menu-item">
+            <span><strong>Clasic (400ml)</strong></span>
+            <span>Preț: 18 RON</span>
+            <span>Alergeni: Lapte</span>
+        </div>
+        <div class="menu-item">
+            <span><strong>Banane & Ciocolată (400ml)</strong></span>
+            <span>Preț: 20 RON</span>
+            <span>Alergeni: Lapte</span>
+        </div>
+        <div class="menu-item">
+            <span><strong>Oreo (400ml)</strong></span>
+            <span>Preț: 20 RON</span>
+            <span>Alergeni: Lapte, frișcă, banane, oreo</span>
+        </div>
+        <div class="menu-item">
+            <span><strong>Smoothie Căpșuni (400ml)</strong></span>
+            <span>Preț: 20 RON</span>
+        </div>
+        <div class="menu-item">
+            <span><strong>Smoothie Pepene Roșu (400ml)</strong></span>
+            <span>Preț: 20 RON</span>
+        </div>
+       
+        
+    </section>
+
+   
+   
+
+    <!-- Mâncare -->
+    <section id="mancare" class="section">
+        <h2>Mâncare</h2>
+        <div class="menu-item">
+            <span><strong>Burger vită (400g)</strong></span>
+            <span>Preț: 40 RON</span>
+            <span>Ingrediente: Chiflă, salată, roșii, castraveți, cheddar, carne vită, cartofi prăjiți</span>
+            <span>Alergeni: Lapte, Susan, Gluten, Dioxid de sulf</span>
+        </div>
+        <div class="menu-item">
+            <span><strong>Burger crispy (400g)</strong></span>
+            <span>Preț: 35 RON</span>
+            <span>Ingrediente: Chiflă, piept de pui în fulgi de porumb, salată, roșii, castraveți, ceapă, cartofi prăjiți</span>
+            <span>Alergeni: Lapte, Susan, Dioxid de sulf, Cereale care conțin gluten</span>
+        </div>
+        <div class="menu-item">
+            <span><strong>Pizza quattro carni (580g)</strong></span>
+            <span>Preț: 35 RON</span>
+            <span>Ingrediente: Blat pizza, sos roșii, șuncă, salam, piept pui, bacon, mozzarella, ketchup</span>
+            <span>Alergeni: Lapte, Gluten, Soia</span>
+        </div>
+        <div class="menu-item">
+            <span><strong>Pizza capricioasa (580g)</strong></span>
+            <span>Preț: 35 RON</span>
+            <span>Ingrediente: Blat pizza, sos roșii, șuncă, ciuperci, ardei, măsline, mozzarella, porumb</span>
+            <span>Alergeni: Lapte, Gluten, Soia</span>
+        </div>
+        <div class="menu-item">
+            <span><strong>Pizza Diavolo (580g)</strong></span>
+            <span>Preț: 33 RON</span>
+            <span>Ingrediente: Blat pizza, sos roșii, salam picant, jalapeno, mozzarella</span>
+            <span>Alergeni: Lapte, Gluten</span>
+        </div>
+        <div class="menu-item">
+            <span><strong>Mici (580g)</strong></span>
+            <span>Preț: 33 RON</span>
+            <span>Ingrediente: 4 mici, muștar, pâine, cartofi</span>
+            <span>Mici bucata (100g): 6 RON</span>
+            <span>Alergeni: Gluten, Lactoză, Sulfuri</span>
+        </div>
+        <div class="menu-item">
+            <span><strong>Paste Carbonara (450g)</strong></span>
+            <span>Preț: 30 RON</span>
+            <span>Ingrediente: Penne, sos carbonara, bacon</span>
+            <span>Alergeni: Lactoză, Gluten, Lapte</span>
+        </div>
+        <div class="menu-item">
+            <span><strong>Crispy (500g)</strong></span>
+            <span>Preț: 35 RON</span>
+            <span>Ingrediente: Piept pui, cartofi prăjiți, sos usturoi</span>
+            <span>Alergeni: Ou, Muștar, Dioxid de sulf</span>
+        </div>
+        <div class="menu-item">
+            <span><strong>Crispy (900g)</strong></span>
+            <span>Preț: 65 RON</span>
+            <span>Ingrediente: Piept pui, cartofi prăjiți, sos usturoi</span>
+            <span>Alergeni: Ou, Muștar, Dioxid de sulf</span>
+        </div>
+        <div class="menu-item">
+            <span><strong>Salată Caesar</strong></span>
+            <span>Preț: 28 RON</span>
+        </div>
+        <div class="menu-item">
+            <span><strong>Salată Grecească</strong></span>
+            <span>Preț: 25 RON</span>
+        </div>
+    </section>
+
+    <section id="extras" class="section">
+        <h2>Extra</h2>
+        <div class="menu-item">
+            <span><strong>Topping Pizza</strong></span>
+            <span>Preț: 5 RON</span>
+            <span>Conținut: Porumb, ciuperci, ceapă, măsline, mozzarella</span>
+            <span>Alergeni: lapte, dioxid de sulf</span>
+        </div>
+        <div class="menu-item">
+            <span><strong>Sos Extra</strong></span>
+            <span>Preț: 5 RON</span>
+            <span>Conținut: Ketchup dulce/picant, maioneză, usturoi</span>
+            <span>Alergeni: muștar, ou, dioxid de sulf</span>
+        </div>
+        <div class="menu-item">
+            <span><strong>Cartofi Prăjiți</strong></span>
+            <span>Preț: 15 RON</span>
+            <span>Conținut: 200g cartofi prăjiți</span>
+        </div>
+    </section>
+
+    <!-- Narghilea -->
+    <section id="narghilea" class="section">
+        <h2>Narghilea</h2>
+        <div class="menu-item">
+            <span><strong>Elysar</strong></span>
+            <span>Preț: 35 RON</span>
+            <span>Arome: Blueberry, Bubblegum, Grape, Grape Mint, Grape Bluebery, Watermelon Ice, Blueberry Ice, Mango</span>
+        </div>
+        <div class="menu-item">
+            <span><strong>Adalya</strong></span>
+            <span>Preț: 40 RON</span>
+            <span>Arome: Love 66, Lady Killer, Mi Amor, Baku, Haway</span>
+        </div>
+    </section>
+
+    <!-- Bucket-uri -->
+    <section id="bucketuri" class="section">
+        <h2>Bucket-uri</h2>
+        <div class="menu-item">
+            <span><strong>Captain Morgan Bucket</strong></span>
+            <span>Preț: 190 RON</span>
+            <span>Conținut: Rom Captain Morgan 0.7L, 4 Coca-Cola / Energizante</span>
+        </div>
+        <div class="menu-item">
+            <span><strong>Jack Daniel’s Bucket</strong></span>
+            <span>Preț: 210 RON</span>
+            <span>Conținut: Whiskey Jack Daniel’s 0.7L, 4 Coca-Cola / Energizante</span>
+        </div>
+     
+        <div class="menu-item">
+            <span><strong>Peroni Bucket</strong></span>
+            <span>Preț: 70 RON</span>
+            <span>Conținut: 6x Peroni 500ml</span>
+            <span>Alergeni: cereale care conțin gluten</span>
+        </div>
+        <div class="menu-item">
+            <span><strong>Corona Bucket</strong></span>
+            <span>Preț: 85 RON</span>
+            <span>Conținut: 6x Corona 355ml</span>
+            <span>Alergeni: cereale care conțin gluten</span>
+        </div>
+        <div class="menu-item">
+            <span><strong>Stella Artois Bucket</strong></span>
+            <span>Preț: 80 RON</span>
+            <span>Conținut: 6x Stella Artois 330ml</span>
+            <span>Alergeni: cereale care conțin gluten</span>
+        </div>
+        <div class="menu-item">
+            <span><strong>Vin Castel Huniade</strong></span>
+            <span>Preț: 75 RON</span>
+            <span>Conținut: Vin Castel Huniade 0.7L, 4 Sprite / Apa minerala</span>
+        </div>
+        <div class="menu-item">
+            <span><strong>Purcari</strong></span>
+            <span>Preț: 110 RON</span>
+            <span>Alb/Rose</span>
+            <span>Conținut: Vin Purcari 0.7L, 4 Sprite / Apa minerala</span>
+        </div>
+    </section>
+    
+
+    <!-- Vinuri -->
+    <section id="vinuri" class="section">
+        <h2>Vinuri</h2>
+ 
+    <div class="menu-item">
+        <span><strong>Castel Huniade (750ml) - Merlot/Pinot Noir, Roșu Demidulce</strong></span>
+        <span>Preț: 55 RON</span>
+        <span>Alergeni: Dioxid de sulf</span>
+    </div>
+    <div class="menu-item">
+        <span><strong>Castel Huniade (750ml) - Rose Demisec</strong></span>
+        <span>Preț: 55 RON</span>
+        <span>Alergeni: Dioxid de sulf</span>
+    </div>
+    <div class="menu-item">
+        <span><strong>Castel Huniade (750ml) - Feteasca Regală, Alb Demisec</strong></span>
+        <span>Preț: 55 RON</span>
+        <span>Alergeni: Dioxid de sulf</span>
+    </div>
+    
+    <div class="menu-item">
+        <span><strong>Purcari (750ml)- alb sec</strong></span>
+        <span>Preț: 80 RON</span>
+        <span>Alergeni: Dioxid de sulf</span>
+    </div>
+    <div class="menu-item">
+        <span><strong>Purcari (750ml)- rose</strong></span>
+        <span>Preț: 80 RON</span>
+        <span>Alergeni: Dioxid de sulf</span>
+    </div>
+    <div class="menu-item">
+        <span><strong>Murfatlar (750ml) - Feteasca Regală, Alb demidulce</strong></span>
+        <span>Preț: 55 RON</span>
+        <span>Alergeni: Dioxid de sulf</span>
+    </div>
+    <div class="menu-item">
+        <span><strong>Vin la pahar (200ml)</strong></span>
+        <span>Preț: 18 RON</span>
+        <span>Alb/Roșu/Rose</span>
+        <span>Alergeni: Dioxid de sulf</span>
+    </div>
+</section>
+
+    <!-- Snacksuri -->
+    <section id="snacksuri" class="section">
+        <h2>Snacksuri</h2>
+        <div class="menu-item">
+            <span><strong>Nachos cu brânză (200g)</strong></span>
+            <span>Preț: 16 RON</span>
+        </div>
+        <div class="menu-item">
+            <span><strong>Alune (100g)</strong></span>
+            <span>Preț: 20 RON</span>
+        </div><div class="menu-item">
+            <span><strong>Lava cake</strong></span>
+            <span>Preț: 20 RON</span>
+            <span>Alergeni: lapte, ou soia, cereale care conțin gluten </span>
+        </div>
+    </section>
+
+
+    <section id="contact">
+        <h2>Contact</h2>
+        <p>Veniți să ne vizitați la Skyfall Shisha pentru o experiență unică!</p>
+        <a href="tel:+40737519067" class="button">Sunați-ne acum!</a>
+    </section>
+</div>
+
+<footer class="footer">
+    <p>&copy; 2025 Skyfall Shisha. Toate drepturile rezervate.</p>
+</footer>
+
+</body>
+</html>
