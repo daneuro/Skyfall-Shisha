@@ -335,29 +335,36 @@ nav::-webkit-scrollbar-thumb:hover {
 <body>
 
     <script>
-        document.addEventListener("DOMContentLoaded", function () {
-            const sections = document.querySelectorAll("section"); // Selectează toate secțiunile
-            const navLinks = document.querySelectorAll(".nav-link"); // Selectează toate linkurile din meniu
-        
-            function updateActiveLink() {
-                let scrollPosition = window.scrollY;
-        
-                sections.forEach((section) => {
-                    const sectionTop = section.offsetTop - 100; // Ajustare pentru meniu fix
-                    const sectionHeight = section.clientHeight;
-        
-                    if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
-                        const currentId = section.getAttribute("id");
-        
-                        navLinks.forEach((link) => {
-                            link.classList.remove("active"); // Șterge clasa activă de la toate linkurile
-                            if (link.getAttribute("href") === `#${currentId}`) {
-                                link.classList.add("active"); // Adaugă clasa activă la linkul corespunzător
-                            }
+     document.addEventListener("DOMContentLoaded", function () {
+    const sections = document.querySelectorAll("section");
+    const navLinks = document.querySelectorAll(".nav-link");
+    const navBar = document.querySelector("nav");
+
+    function updateActiveLink() {
+        let scrollPosition = window.scrollY;
+
+        sections.forEach((section) => {
+            const sectionTop = section.offsetTop - 100; // Ajustare pentru meniu fix
+            const sectionHeight = section.clientHeight;
+
+            if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
+                const currentId = section.getAttribute("id");
+
+                navLinks.forEach((link) => {
+                    link.classList.remove("active");
+                    if (link.getAttribute("href") === `#${currentId}`) {
+                        link.classList.add("active");
+
+                        // 🔹 Scroll automat în bara de navigație spre linkul activ
+                        navBar.scrollTo({
+                            left: link.offsetLeft - 50, // Ajustare pentru a centra linkul activ
+                            behavior: "smooth",
                         });
                     }
                 });
             }
+        });
+    }
         
             window.addEventListener("scroll", updateActiveLink);
         });
