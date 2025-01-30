@@ -153,21 +153,20 @@ header h1 {
         }
        
 
-      nav {
+        nav {
     position: fixed; /* Fixează bara de navigare sus */
     top: 0;
     left: 0;
     width: 100%; /* Bara ocupă întreaga lățime */
     background-color: #ffffff;
     padding: 10px 20px;
-    display: flex; /* Flexbox pentru aliniere orizontală */
-    flex-wrap: nowrap; /* Nu permite rânduri multiple pe mobil */
-    justify-content: flex-start; /* Aliniază elementele la stânga */
+    display: flex;
+    justify-content: flex-start; /* Linkurile vor fi aliniate la stânga */
     align-items: center;
     border-bottom: 1px solid #ccc; /* Linia subtire sub bara de navigare */
     z-index: 1000;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    overflow-x: auto; /* Permite scroll-ul pe orizontală */
+    overflow-x: auto; /* Permite scroll-ul pe orizontală pentru linkuri */
 }
 
 /* Linkuri din bara de navigare */
@@ -212,15 +211,14 @@ nav a.active {
 /* Media query pentru dispozitive mobile */
 @media (max-width: 768px) {
     nav {
-        padding: 10px 15px;
         justify-content: flex-start; /* Aliniază linkurile la stânga */
+        padding: 10px 15px;
         overflow-x: auto; /* Permite scroll pe orizontală */
     }
 
     nav a {
         padding: 10px 15px;
         font-size: 14px; /* Micșorăm fontul pe mobil */
-        white-space: nowrap; /* Previne întreruperea cuvintelor */
     }
 }
 
@@ -242,6 +240,21 @@ nav::-webkit-scrollbar-thumb {
 
 nav::-webkit-scrollbar-thumb:hover {
     background: #555;
+}
+
+.nav-link {
+    color: #2c3e50;
+    text-decoration: none;
+    padding: 10px 20px;
+    margin: 0 15px;
+    position: relative;
+    font-weight: bold;
+    transition: color 0.3s ease-in-out;
+}
+
+.nav-link.active {
+    color: #f39c12; /* Roșu pentru linkul activ */
+
 }
         .container {
             max-width: 1200px;
@@ -321,6 +334,35 @@ nav::-webkit-scrollbar-thumb:hover {
 </head>
 <body>
 
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const sections = document.querySelectorAll("section"); // Selectează toate secțiunile
+            const navLinks = document.querySelectorAll(".nav-link"); // Selectează toate linkurile din meniu
+        
+            function updateActiveLink() {
+                let scrollPosition = window.scrollY;
+        
+                sections.forEach((section) => {
+                    const sectionTop = section.offsetTop - 100; // Ajustare pentru meniu fix
+                    const sectionHeight = section.clientHeight;
+        
+                    if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
+                        const currentId = section.getAttribute("id");
+        
+                        navLinks.forEach((link) => {
+                            link.classList.remove("active"); // Șterge clasa activă de la toate linkurile
+                            if (link.getAttribute("href") === `#${currentId}`) {
+                                link.classList.add("active"); // Adaugă clasa activă la linkul corespunzător
+                            }
+                        });
+                    }
+                });
+            }
+        
+            window.addEventListener("scroll", updateActiveLink);
+        });
+        </script>
+
 <header>
     <h1>Skyfall Shisha</h1>
     <p>Relaxare, Gust, Eleganță</p>
@@ -394,25 +436,28 @@ nav::-webkit-scrollbar-thumb:hover {
 
 <nav>
     
-    <a href="#bauturi-calde">Băuturi Calde</a>
-    <a href="#racoritoare">Răcoritoare</a>
-    <a href="#bere">Bere</a>
-    <a href="#cocktail">Cocktail</a>
-    <a href="#long-drinks">Long Drinks</a>
-    <a href="#milkshake">Milkshake</a>
-    <a href="#mancare">Mâncare</a>
-    <a href="#extras">Extra</a>
-    <a href="#narghilea">Narghilea</a>
-    <a href="#bucketuri">Bucket-uri</a>
-    <a href="#vinuri">Vinuri</a>
-    <a href="#snacksuri">Snacksuri</a>
-    <a href="#contact">Contact</a>
+    <a href="#bauturi-calde"  class="nav-link">Băuturi Calde</a>
+    <a href="#racoritoare"  class="nav-link">Răcoritoare</a>
+    <a href="#Limo-fresh"  class="nav-link">Limo-Fresh</a>
+    <a href="#bere"  class="nav-link">Bere</a>
+    <a href="#cocktail"  class="nav-link">Cocktail</a>
+    <a href="#long-drinks"  class="nav-link">Long Drinks</a>
+    <a href="#Shot"  class="nav-link">Shoturi</a>
+    <a href="#tarie"  class="nav-link">Tărie 50ml</a>
+    <a href="#milkshake"  class="nav-link">Milkshake</a>
+    <a href="#mancare"  class="nav-link">Mâncare</a>
+    <a href="#extras"  class="nav-link">Extra</a>
+    <a href="#narghilea"  class="nav-link">Narghilea</a>
+    <a href="#bucketuri"  class="nav-link">Bucket-uri</a>
+    <a href="#vinuri" class="nav-link">Vinuri</a>
+    <a href="#snacksuri"  class="nav-link">Snacksuri</a>
+    <a href="#contact"  class="nav-link">Contact</a>
 </nav>
 
 <div class="container">
     <!-- Băuturi Calde -->
     <section id="bauturi-calde" class="section">
-        <h2>Băuturi Calde</h2>
+        <h2>Bauturi calde</h2>
         <div class="menu-item">
             <span><strong>Espresso (30ml)</strong></span>
             <span>Preț: 9 RON</span>
@@ -503,6 +548,23 @@ nav::-webkit-scrollbar-thumb:hover {
             <span>Preț: 15 RON</span>
         </div>
     </section>
+
+    <section id="Limo-fresh" class="section">
+        <h2>Limo-Fresh</h2>
+        <div class="menu-item">
+            <span><strong>Limonada Clasica (400ml)</strong></span>
+            <span>Preț: 13 RON</span>
+        </div>
+        <div class="menu-item">
+            <span><strong>Limonada cu aromne (400ml)</strong></span>
+            <span>Arome: Banane/capsuni/pepene roșu/zmeura </span>
+            <span>Preț: 15 RON</span>
+        </div>
+        <div class="menu-item">
+            <span><strong>Fresh portocale (300ml)</strong></span>
+            <span>Preț: 15 RON</span>
+        </div>
+        </section>
 
     <section id="bere" class="section">
         <h2>Bere</h2>
@@ -633,6 +695,51 @@ nav::-webkit-scrollbar-thumb:hover {
             <span>Conținut: Whiskey, Coca-Cola/suc mere</span>
         </div>
     </section>
+
+
+    <section id="Shot" class="section">
+        <h2>Shoturi</h2>
+        <div class="menu-item">
+            <span><strong>Kamikaze</strong></span>
+            <span>Preț: 10 RON</span>
+            <span>Conținut: Vodka,triplu sec,blue curacao.</span>
+        </div>
+        <div class="menu-item">
+            <span><strong>Jagermeister</strong></span>
+            <span>Preț: 10 RON</span>
+            <span>Conținut: Vodka,triplu sec,blue curacao.</span>
+        </div>
+        </section>
+
+
+        <section id="tarie" class="section">
+            <h2>Tărie 50ml</h2>
+            <div class="menu-item">
+                <span><strong>Alexandrion</strong></span>
+                <span>Preț: 12 RON</span>
+               
+            </div>
+            <div class="menu-item">
+                <span><strong>Jagermeister</strong></span>
+                <span>Preț: 14 RON</span>
+               
+            </div>
+            <div class="menu-item">
+                <span><strong> Jidvei</strong></span>
+                <span>Preț: 16 RON</span>
+               
+            </div>
+            <div class="menu-item">
+                <span><strong>Jack Daniel’s</strong></span>
+                <span>Preț: 18 RON</span>
+               
+            </div>
+            <div class="menu-item">
+                <span><strong>Baileys</strong></span>
+                <span>Preț: 20 RON</span>
+             <span>Alergeni:Lapte</span>
+            </div>
+            </section>
     
 
     <!-- Milkshake -->
@@ -728,11 +835,15 @@ nav::-webkit-scrollbar-thumb:hover {
         </div>
         <div class="menu-item">
             <span><strong>Salată Caesar</strong></span>
+            <span>Ingrediente: Salată iceberg, piept pui, roșii, ou, mozzarella, sos usturoi.</span>
             <span>Preț: 30 RON</span>
+            <span>Alergeni:lapte,ou,cereale care conțin gluten.</span>
         </div>
         <div class="menu-item">
             <span><strong>Salată Grecească</strong></span>
+            <span>Ingrediente: Salată iceberg, roșii,castraveți, măsline, ardei, porumb </span>
             <span>Preț: 27 RON</span>
+            <span>Alergeni:cereale care conțin gluten.</span>
         </div>
     </section>
 
@@ -833,7 +944,7 @@ nav::-webkit-scrollbar-thumb:hover {
         <span>Alergeni: Dioxid de sulf</span>
     </div>
     <div class="menu-item">
-        <span><strong>Castel Huniade (750ml) - Feteasca Regală, Alb Demisec</strong></span>
+        <span><strong>Castel Huniade (750ml) - Muscat Ottonel, Alb Demisec</strong></span>
         <span>Preț: 55 RON</span>
         <span>Alergeni: Dioxid de sulf</span>
     </div>
@@ -870,7 +981,7 @@ nav::-webkit-scrollbar-thumb:hover {
         </div>
         <div class="menu-item">
             <span><strong>Alune (100g)</strong></span>
-            <span>Preț: 15 RON</span>
+            <span>Preț: 20 RON</span>
         </div><div class="menu-item">
             <span><strong>Lava cake</strong></span>
             <span>Preț: 20 RON</span>
