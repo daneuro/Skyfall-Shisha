@@ -330,6 +330,128 @@ nav::-webkit-scrollbar-thumb:hover {
 .button:hover {
     background-color: #f39c12; /* Aurie pentru hover */
 }
+
+
+        .valentine-section {
+    background-color: #ffebf0;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    margin: 20px;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Titlu cu efect romantic */
+.valentine-section h2 {
+    color: #d64b57;
+    font-size: 26px;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+}
+
+/* Casete pentru oferte */
+.offer {
+    background: white;
+    border-radius: 8px;
+    padding: 15px;
+    margin: 10px auto;
+    max-width: 600px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.offer p {
+    font-size: 18px;
+    color: #333;
+}
+
+.offer ul {
+    list-style: none;
+    padding: 0;
+}
+
+.offer ul li {
+    font-size: 16px;
+    color: #d64b57;
+    margin: 5px 0;
+}
+
+/* ANIMAȚIE MULTIPLE INIMIOARE */
+
+
+.valentine-section::after {
+    top: auto;
+    bottom: 0;
+    opacity: 0.3;
+    animation-duration: 8s;
+}
+
+/* Efect de plutire pentru inimioare */
+@keyframes floatHearts {
+    0% {
+        transform: translateY(0);
+    }
+    100% {
+        transform: translateY(-15px);
+    }
+}
+
+/* INIMIOARE PE FUNDAL STÂNGA ȘI DREAPTA */
+.heart-bg {
+    position: absolute;
+    color: #ff4d6d;
+    font-size: 30px;
+    opacity: 0.3;
+    animation: floatingHearts 5s infinite alternate ease-in-out;
+}
+
+.heart-left {
+    left: 10px;
+    top: 20%;
+    animation-duration: 6s;
+}
+
+.heart-right {
+    right: 10px;
+    top: 40%;
+    animation-duration: 7s;
+}
+
+.heart-center {
+    left: 50%;
+    top: 30%;
+    transform: translateX(-50%);
+    font-size: 50px;
+    opacity: 0.6;
+}
+
+/* Animăm inimioarele să se miște */
+@keyframes floatingHearts {
+    0% {
+        transform: translateY(0) scale(1);
+    }
+    100% {
+        transform: translateY(-20px) scale(1.2);
+    }
+}
+
+/* Adăugăm un grup de inimioare pentru a acoperi fundalul */
+.valentine-section .heart-bg {
+    font-size: 40px; /* mai mari pentru a fi vizibile */
+    opacity: 0.4;
+}
+
+.valentine-section .heart-left {
+    animation-duration: 5s;
+}
+
+.valentine-section .heart-right {
+    animation-duration: 5s;
+}
+
+.valentine-section .heart-center {
+    font-size: 60px; /* chiar mai mari pentru un efect mai puternic */
+}
     </style>
 </head>
 <body>
@@ -460,6 +582,22 @@ nav::-webkit-scrollbar-thumb:hover {
     <a href="#snacksuri"  class="nav-link">Snacksuri</a>
     <a href="#contact"  class="nav-link">Contact</a>
 </nav>
+
+    <section id="valentine-special" class="valentine-section">
+    <h2>💖 Oferte Speciale de Valentine's Day 💖</h2>
+    <div class="offer">
+        <p>👩‍❤️‍👨 <strong>Oferta pentru Cupluri:</strong> Narghilea premium + 2 cocktailuri + desert la doar <strong>100 lei!</strong></p>
+    </div>
+    <div class="offer">
+        <p>🎁 <strong>Oferta pentru Toată Lumea:</strong> La o consumație de <strong>minim 250 lei/masă</strong>, intri în <strong>TOMBOLĂ</strong> și poți câștiga:</p>
+        <ul>
+            <li>🎁 O narghilea gratuită</li>
+            <li>💰 10% reducere la toată masa</li>
+            <li>🥃 Shoturi gratuite pentru toată masa</li>
+            <li>🍹 Un cocktail la alegere</li>
+        </ul>
+    </div>
+</section>
 
 <div class="container">
     <!-- Băuturi Calde -->
